@@ -1,6 +1,6 @@
 {
   "name": "bitfinex-candle-to-record",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Map a Bitfinex candle to a talib Record",
   "main": "dist/bitfinex-candle-to-record.js",
   "types": "dist/bitfinex-candle-to-record.d.ts",
