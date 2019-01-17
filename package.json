@@ -1,0 +1,59 @@
+{
+  "name": "bitfinex-candle-to-record",
+  "version": "0.0.1",
+  "description": "Map a Bitfinex candle to a talib Record",
+  "main": "dist/bitfinex-candle-to-record.js",
+  "types": "dist/bitfinex-candle-to-record.d.ts",
+  "scripts": {
+    "install": "tsc",
+    "test": "ava",
+    "test:watch": "npm test -- --watch",
+    "dev": "concurrently \"tsc -w\" \"nodemon -e 'ts json' -x 'npm test || true'\"",
+    "watch:test": "nodemon -e 'ts json' -x 'npm test || true'",
+    "typedoc": "typedoc && cp ./doc/typedoc/README.md .",
+    "push-and-publish": "git push origin master && git push origin --tags && npm publish"
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "npm run typedoc && git add doc README.md && (git commit -m 'Update documentation' || true)"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/strong-roots-capital/bitfinex-candle-to-record.git"
+  },
+  "keywords": [
+    "bitfinex",
+    "candle",
+    "record"
+  ],
+  "author": "Eric Crosson <eric.s.crosson@utexas.com> (https://github.com/strong-roots-capital)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/strong-roots-capital/bitfinex-candle-to-record/issues"
+  },
+  "homepage": "https://github.com/strong-roots-capital/bitfinex-candle-to-record",
+  "dependencies": {
+    "@types/node": "^10.12.18",
+    "timeseries-record": "^1.0.0",
+    "typescript": "^3.2.2"
+  },
+  "devDependencies": {
+    "ava": "^1.0.0",
+    "concurrently": "^4.1.0",
+    "got": "^9.6.0",
+    "husky": "^1.3.1",
+    "ts-node": "^7.0.1",
+    "typedoc": "^0.13.0",
+    "typedoc-plugin-markdown": "^1.1.20"
+  },
+  "ava": {
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ]
+  }
+}
